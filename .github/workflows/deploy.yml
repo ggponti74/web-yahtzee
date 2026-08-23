@@ -1,4 +1,4 @@
-name: Deploy Yahtzee PWA
+name: Deploy Yahtzee
 
 on:
   push:
@@ -9,6 +9,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+  permissions:
+    contents: write
 
     steps:
       # 1. Checkout repo

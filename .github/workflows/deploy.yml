@@ -9,8 +9,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-  permissions:
-    contents: write
+    permissions:
+      contents: write   # <-- must be indented under the job
 
     steps:
       # 1. Checkout repo
@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 24
+          node-version: 18
           cache: 'npm'
 
       # 3. Install dependencies

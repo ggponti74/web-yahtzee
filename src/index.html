@@ -1,1 +1,62 @@
-<html />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yahtzee</title>
+  <link rel="manifest" href="/public/manifest.json" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Yahtzee</h1>
+    <button id="reset-btn">Reset Game</button>
+    <button id="sound-toggle">🔊</button>
+  </header>
+
+  <!-- Dice Area -->
+  <section id="dice-area">
+    <div class="dice" data-index="0"></div>
+    <div class="dice" data-index="1"></div>
+    <div class="dice" data-index="2"></div>
+    <div class="dice" data-index="3"></div>
+    <div class="dice" data-index="4"></div>
+  </section>
+
+  <!-- Roll Button -->
+  <section id="controls">
+    <button id="roll-btn">Roll</button>
+    <span id="roll-count">Rolls left: 3</span>
+  </section>
+
+  <!-- Scorecard -->
+  <section id="scorecard">
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Score</th></tr>
+      </thead>
+      <tbody id="score-rows">
+        <!-- Example rows -->
+        <tr><td>Ones</td><td class="score" data-category="ones"></td></tr>
+        <tr><td>Twos</td><td class="score" data-category="twos"></td></tr>
+        <tr><td>Threes</td><td class="score" data-category="threes"></td></tr>
+        <tr><td>Fours</td><td class="score" data-category="fours"></td></tr>
+        <tr><td>Fives</td><td class="score" data-category="fives"></td></tr>
+        <tr><td>Sixes</td><td class="score" data-category="sixes"></td></tr>
+        <tr><td>Three of a Kind</td><td class="score" data-category="three-kind"></td></tr>
+        <tr><td>Four of a Kind</td><td class="score" data-category="four-kind"></td></tr>
+        <tr><td>Full House</td><td class="score" data-category="full-house"></td></tr>
+        <tr><td>Small Straight</td><td class="score" data-category="small-straight"></td></tr>
+        <tr><td>Large Straight</td><td class="score" data-category="large-straight"></td></tr>
+        <tr><td>Yahtzee</td><td class="score" data-category="yahtzee"></td></tr>
+        <tr><td>Chance</td><td class="score" data-category="chance"></td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>Total</td><td id="total-score">0</td></tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <script src="/src/app.js"></script>
+</body>
+</html>

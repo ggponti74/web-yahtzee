@@ -1,1 +1,109 @@
-#derp
+/* --- Base layout --- */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #f5f5f5;
+  color: #222;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #333;
+  color: #fff;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* --- Dice area --- */
+#dice-area {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.dice {
+  width: 50px;
+  height: 50px;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border: 2px solid #333;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dice.held {
+  background: #ddd;
+  border-color: #007acc;
+}
+
+/* --- Controls --- */
+#controls {
+  margin: 1rem 0;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* --- Scorecard --- */
+#scorecard {
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 400px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+td.score {
+  cursor: pointer;
+  background: #fafafa;
+}
+
+td.score:hover {
+  background: #e0f0ff;
+}
+
+/* --- Dark mode toggle (optional) --- */
+body.dark {
+  background: #222;
+  color: #eee;
+}
+
+body.dark header {
+  background: #111;
+}
+
+body.dark .dice {
+  background: #444;
+  color: #eee;
+}
+
+body.dark .dice.held {
+  background: #666;
+  border-color: #66ccff;
+}

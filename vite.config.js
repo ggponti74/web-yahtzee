@@ -13,5 +13,5 @@ export default defineConfig({
   // PWA-related assets
   publicDir: '../public',
   // Optional: customize base path if deploying to GitHub Pages
-  base: './'
+  base: '/web-yahtzee/'
 });

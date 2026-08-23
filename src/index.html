@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yahtzee</title>
-  <link rel="manifest" href="/public/manifest.json" />
-  <link rel="stylesheet" href="/src/style.css" />
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Styles: imported from src via Vite -->
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header>
@@ -36,7 +40,6 @@
         <tr><th>Category</th><th>Score</th></tr>
       </thead>
       <tbody id="score-rows">
-        <!-- Example rows -->
         <tr><td>Ones</td><td class="score" data-category="ones"></td></tr>
         <tr><td>Twos</td><td class="score" data-category="twos"></td></tr>
         <tr><td>Threes</td><td class="score" data-category="threes"></td></tr>
@@ -57,6 +60,7 @@
     </table>
   </section>
 
-  <script src="/src/app.js"></script>
+  <!-- Scripts: Vite requires type="module" -->
+  <script type="module" src="/app.js"></script>
 </body>
 </html>

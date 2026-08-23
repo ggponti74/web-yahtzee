@@ -1,7 +1,7 @@
 {
   "name": "web-yahtzee",
   "version": "1.0.0",
-  "description": "Web Yahtzee",
+  "description": "Minimal Yahtzee Progressive Web App",
   "main": "src/app.js",
   "scripts": {
     "dev": "vite",
@@ -19,4 +19,4 @@
   "devDependencies": {
     "vite": "^5.0.0"
   }
-} 
+}

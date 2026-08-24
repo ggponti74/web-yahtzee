@@ -1,20 +1,27 @@
-/* --- Base layout --- */
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: #f5f5f5;
-  color: #222;
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --panel: #f2f2f2;
+  --accent: #d32f2f;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: #333;
-  color: #fff;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --fg: #e0e0e0;
+    --panel: #1e1e1e;
+    --accent: #ff5252;
+  }
+}
+
+/* --- Base layout --- */
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+header, .score-table {
+  background: var(--panel);
 }
 
 h1 {
@@ -54,11 +61,9 @@ h1 {
   margin: 1rem 0;
 }
 
+
 button {
-  padding: 0.5rem 1rem;
-  margin: 0.25rem;
-  font-size: 1rem;
-  cursor: pointer;
+  background: var(--accent);
 }
 
 /* --- Scorecard --- */

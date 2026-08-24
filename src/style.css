@@ -21,14 +21,14 @@
     --panel: #1e1e1e;
     --accent: #ff5252;
 
-    --dice-bg: #444444;
-    --dice-border: #666666;
-    --dice-held-bg: #666666;
+    --dice-bg: #2a2a2a;
+    --dice-border: #555555;
+    --dice-held-bg: #444444;
     --dice-held-border: #66ccff;
 
-    --table-border: #666666;
-    --score-bg: #2a2a2a;
-    --score-hover-bg: #333f55;
+    --table-border: #555555;
+    --score-bg: #1e1e1e;
+    --score-hover-bg: #2a3b55;
   }
 }
 
@@ -37,11 +37,13 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: sans-serif;
+  margin: 0;
 }
 
 header {
   background: var(--panel);
   color: var(--fg);
+  padding: 0.5rem;
 }
 
 h1 {
@@ -85,7 +87,8 @@ button {
   background: var(--accent);
   color: var(--fg);
   padding: 0.5rem 1rem;
-  margin: 0.25rem;
+  border: none;
+  border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
 }

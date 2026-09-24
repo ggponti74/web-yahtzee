@@ -1,4 +1,4 @@
-const VERSION_NUMBER = "1.0.__VERSION_NUMBER__.A";
+const VERSION_NUMBER = "1.0.__BUILD_VERSION__.B";
 
 // ========================
 // Game configuration
@@ -72,4 +72,4 @@ function playScoreSound() {
 // Main
 // ========================
 
-document.getElementById("versionNumber").innerText = VERSION_NUMBER;
+document.getElementById("versionNumber").innerText = __BUILD_VERSION__;

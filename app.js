@@ -60,8 +60,26 @@ let soundEnabled = true;
 // Sound
 // ========================
 
-function playScoreSound() {
-    // TODO: category scored sound, if ever desired
+let soundEnabled = true;
+
+const sounds = {
+    roll: new Audio("sounds/dice-roll.mp3"),
+    score: new Audio("sounds/score.mp3"),
+    win: new Audio("sounds/win.mp3"),
+    yahtzee: new Audio("sounds/yahtzee.mp3")
+};
+
+function playSound(name) {
+    if (!soundEnabled) {
+        return;
+    }
+
+    const sound = sounds[name];
+
+    if (sound) {
+        sound.currentTime = 0;
+        sound.play();
+    }
 }
 
 // ========================
@@ -73,3 +91,5 @@ function playScoreSound() {
 // ========================
 
 document.getElementById("versionNumber").innerText = __BUILD_VERSION__;
+
+playSound("win");

@@ -1,17 +1,129 @@
-<body>
-  <header>Title Turns remaining Best score</header>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <main>
-    <section id="scorecard">
-      Upper score categories Lower score categories
-    </section>
+    <title>Yahtzee</title>
 
-    <section id="dice-area">Five dice</section>
-  </main>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <footer>Sound toggle Made with ChatGPT Roll / New Game button</footer>
-  
-  <script src="app.js" />
-  <script src="sw.js" />
+  <body>
+    <header id="game-header">
+      <div class="header-title">YAHTZEE</div>
+
+      <div class="header-stat">
+        <span class="stat-label">Turns</span>
+        <span id="turns">13</span>
+      </div>
+
+      <div class="header-stat">
+        <span class="stat-label">Best</span>
+        <span id="best-score">0</span>
+      </div>
+    </header>
+
+    <main id="game">
+      <section id="scorecard">
+        <div class="score-column" id="upper-section">
+          <h2>Upper</h2>
+
+          <div class="score-row" data-category="ones">
+            <span>Ones</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="twos">
+            <span>Twos</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="threes">
+            <span>Threes</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="fours">
+            <span>Fours</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="fives">
+            <span>Fives</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="sixes">
+            <span>Sixes</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row bonus-row">
+            <span>Bonus</span>
+            <span id="bonus-score">+35</span>
+          </div>
+        </div>
+
+        <div class="score-column" id="lower-section">
+          <h2>Lower</h2>
+
+          <div class="score-row" data-category="threeKind">
+            <span>3 of a Kind</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="fourKind">
+            <span>4 of a Kind</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="fullHouse">
+            <span>Full House</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="smallStraight">
+            <span>Small Straight</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="largeStraight">
+            <span>Large Straight</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="yahtzee">
+            <span>Yahtzee</span>
+            <span class="score-value"></span>
+          </div>
+
+          <div class="score-row" data-category="chance">
+            <span>Chance</span>
+            <span class="score-value"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="dice-area">
+        <div class="die" data-die="0">⚀</div>
+        <div class="die" data-die="1">⚀</div>
+        <div class="die" data-die="2">⚀</div>
+        <div class="die" data-die="3">⚀</div>
+        <div class="die" data-die="4">⚀</div>
+      </section>
+    </main>
+
+    <footer id="game-footer">
+      <button id="sound-toggle" type="button">🔊 Sound</button>
+
+      <div id="footer-credit">Made with ChatGPT</div>
+
+      <button id="roll-button" type="button">Roll</button>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="sw.js" />
+  </body>
 </html>
-</body>

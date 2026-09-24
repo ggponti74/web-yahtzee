@@ -1,1 +1,1 @@
-# web-yahtzee
+Send comments and suggestions to /dev/null

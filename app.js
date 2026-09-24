@@ -67,3 +67,9 @@ function playScoreSound() {
 // ========================
 // Settings / localStorage
 // ========================
+
+// ========================
+// Main
+// ========================
+
+document.getElementById("VERSION_PLACEHOLDER").innerText = VERSION_NUMBER;

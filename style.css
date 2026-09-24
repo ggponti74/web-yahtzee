@@ -120,7 +120,6 @@ body {
     font-weight: bold;
 }
 
-
 /* ========================
    Dice
    ======================== */
@@ -137,21 +136,24 @@ body {
 }
 
 .die {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 
     aspect-ratio: 1;
 
+    padding: 12%;
+
     background: white;
     border: 2px solid #333;
-    border-radius: 10px;
+    border-radius: 12px;
 
-    font-size: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
     user-select: none;
     cursor: pointer;
-
     touch-action: manipulation;
 }
 
@@ -161,11 +163,49 @@ body {
     width: calc(50% - 5px);
 }
 
-.die.held {
-    opacity: 0.55;
-    transform: translateY(-3px);
+
+/* ========================
+   Dice pips
+   ======================== */
+
+.pip {
+    width: 55%;
+    height: 55%;
+
+    align-self: center;
+    justify-self: center;
+
+    background: #111;
+    border-radius: 50%;
 }
 
+
+/* ========================
+   Held die
+   ======================== */
+
+.die.held {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ========================
+   Small screens
+   ======================== */
+
+@media (max-width: 400px) {
+
+    #dice-area {
+        max-width: 220px;
+        gap: 7px;
+    }
+
+    .die {
+        padding: 12%;
+        border-radius: 10px;
+    }
+}
 
 /* ========================
    Footer

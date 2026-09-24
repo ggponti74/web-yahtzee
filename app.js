@@ -72,4 +72,4 @@ function playScoreSound() {
 // Main
 // ========================
 
-document.getElementById("VERSION_PLACEHOLDER").innerText = VERSION_NUMBER;
+document.getElementById("versionNumber").innerText = VERSION_NUMBER;

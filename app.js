@@ -1,4 +1,5 @@
 const VERSION_NUMBER = "1.0.__BUILD_VERSION__.A";
+const STORAGE_KEY = "yahtzee-v1";
 
 // ========================
 // Game configuration

@@ -45,7 +45,7 @@ document.getElementById("toggleSound").addEventListener("click", function () {
 });
 
 document.getElementById("rollButton").addEventListener("click", function () {
-    playSound("win");
+    playSound("click");
 });
 
 // ========================

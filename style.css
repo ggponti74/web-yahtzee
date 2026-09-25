@@ -110,9 +110,14 @@ body {
 }
 
 .score-value {
-    min-width: 28px;
-    text-align: right;
-    font-weight: bold;
+    display: inline-block;
+    min-width: 35px;
+    height: 24px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 22px;
+    color: #aaa;
 }
 
 .bonus-row {

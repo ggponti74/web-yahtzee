@@ -36,6 +36,14 @@ let bestScore = 0;
 // Event handlers
 // ========================
 
+document.getElementById("toggleSound").addEventListener("click", function () {
+    soundEnabled = !soundEnabled;
+
+    if(soundEnabled) {
+         playSound("click");
+    }
+});
+
 document.getElementById("rollButton").addEventListener("click", function () {
     playSound("win");
 });
@@ -71,6 +79,7 @@ document.getElementById("rollButton").addEventListener("click", function () {
 let soundEnabled = true;
 
 const sounds = {
+    click: new Audio("sounds/click.mp3"),
     roll: new Audio("sounds/roll.mp3"),
     score: new Audio("sounds/score.mp3"),
     win: new Audio("sounds/win.mp3"),

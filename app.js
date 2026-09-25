@@ -56,6 +56,12 @@ document.getElementById("rollButton").addEventListener("click", function () {
 // Initialization
 // ========================
 
+function initializeDice() {
+    document.querySelectorAll(".die").forEach(function (die) {
+        die.innerHTML = '<span class="pip"></span>';
+    });
+}
+
 // ========================
 // Game management
 // ========================
@@ -114,9 +120,4 @@ function playSound(name) {
 
 document.getElementById("versionNumber").innerHTML = "Version " + VERSION_NUMBER;
 
-console.log(sounds.win);
-console.log(sounds.win.src);
-console.log(sounds.win.readyState);
-
-playSound("win");
-
+initializeDice();

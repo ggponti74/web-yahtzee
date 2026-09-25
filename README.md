@@ -1,4 +1,4 @@
-<https://ggponti74.github.io/web-minesweeper/>
+<https://ggponti74.github.io/web-yahtzee/>
 
 ## Feedback
 

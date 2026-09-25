@@ -36,7 +36,7 @@ let bestScore = 0;
 // Event handlers
 // ========================
 
-document.getElementById("toggleSound").addEventListener("click", function () {
+document.getElementById("soundToggle").addEventListener("click", function () {
     soundEnabled = !soundEnabled;
 
     if(soundEnabled) {

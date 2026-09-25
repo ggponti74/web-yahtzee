@@ -36,7 +36,7 @@ let bestScore = 0;
 // Event handlers
 // ========================
 
-rollButton.addEventListener("click", function () {
+document.getElementById("rollButton").addEventListener("click", function () {
     playSound("win");
 });
 

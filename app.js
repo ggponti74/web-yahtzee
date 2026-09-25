@@ -93,3 +93,8 @@ function playSound(name) {
 document.getElementById("versionNumber").innerHTML = "Version " + CACHE;
 
 playSound("win");
+
+console.log(sounds.win);
+console.log(sounds.win.src);
+console.log(sounds.win.readyState);
+

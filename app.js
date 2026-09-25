@@ -33,6 +33,14 @@ let scores = {
 let bestScore = 0;
 
 // ========================
+// Event handlers
+// ========================
+
+rollButton.addEventListener("click", function () {
+    playSound("win");
+});
+
+// ========================
 // Game state
 // ========================
 
@@ -63,7 +71,7 @@ let bestScore = 0;
 let soundEnabled = true;
 
 const sounds = {
-    roll: new Audio("sounds/dice-roll.mp3"),
+    roll: new Audio("sounds/roll.mp3"),
     score: new Audio("sounds/score.mp3"),
     win: new Audio("sounds/win.mp3"),
     yahtzee: new Audio("sounds/yahtzee.mp3")
@@ -76,10 +84,15 @@ function playSound(name) {
 
     const sound = sounds[name];
 
-    if (sound) {
-        sound.currentTime = 0;
-        sound.play();
+    if (!sound) {
+        return;
     }
+
+    sound.currentTime = 0;
+
+    sound.play().catch(function (error) {
+        console.log("Sound playback failed:", error);
+    });
 }
 
 // ========================

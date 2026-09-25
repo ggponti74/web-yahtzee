@@ -30,7 +30,6 @@ let scores = {
 };
 
 let bestScore = 0;
-let soundEnabled = true;
 
 // ========================
 // Game state

@@ -90,11 +90,11 @@ function playSound(name) {
 // Main
 // ========================
 
-document.getElementById("versionNumber").innerHTML = "Version " + CACHE;
-
-playSound("win");
+document.getElementById("versionNumber").innerHTML = "Version " + VERSION_NUMBER;
 
 console.log(sounds.win);
 console.log(sounds.win.src);
 console.log(sounds.win.readyState);
+
+playSound("win");
 

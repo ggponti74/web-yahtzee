@@ -12,19 +12,23 @@
   </head>
 
   <body>
-    <header id="game-header">
-      <div class="header-title">YAHTZEE</div>
+<header id="game-header">
+  <div class="header-stat header-best">
+    <span class="header-icon">🥇</span>
+    <div class="stat-info">
+      <span class="stat-label">Best</span>
+      <span id="best-score">---</span>
+    </div>
+  </div>
 
-      <div class="header-stat">
-        <span class="stat-label">Turns</span>
-        <span id="turns">13</span>
-      </div>
-
-      <div class="header-stat">
-        <span class="stat-label">Best</span>
-        <span id="best-score">0</span>
-      </div>
-    </header>
+  <div class="header-stat header-turns">
+    <span class="header-icon">🖐</span>
+    <div class="stat-info">
+      <span class="stat-label">Turns</span>
+      <span id="turns">13</span>
+    </div>
+  </div>
+</header>
 
     <main id="game">
       <section id="scorecard">

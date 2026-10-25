@@ -173,6 +173,34 @@ body {
     border-radius: 50%;
 }
 
+.die {
+    position: relative;
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    padding: 5px;
+    background: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.pip {
+    width: 7px;
+    height: 7px;
+    align-self: center;
+    justify-self: center;
+    background: #000;
+    border-radius: 50%;
+}
+
 .die.held {
     transform: translateY(-4px);
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
@@ -183,14 +211,18 @@ body {
    ======================== */
 
 @media (max-width: 400px) {
-    #dice-area {
-        gap: 6px;
-        max-width: 270px;
+    .die {
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+        gap: 1px;
+        padding: 3px;
+        border-radius: 8px;
     }
 
-    .die {
-        max-width: 48px;
-        border-radius: 9px;
+    .pip {
+        width: 5px;
+        height: 5px;
     }
 }
 

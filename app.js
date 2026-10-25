@@ -284,13 +284,12 @@ function chooseScore(category) {
         return;
     }
 
-    dice = [1, 1, 1, 1, 1];
-    held = [false, false, false, false, false];
-    rollsRemaining = 3;
-    gameState = "ready";
+held = [false, false, false, false, false];
+rollsRemaining = 3;
+gameState = "ready";
 
-    renderDice();
-    updateRollButton();
+renderDice();
+updateRollButton();
 }
 
 function newGame() {

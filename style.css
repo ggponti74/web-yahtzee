@@ -155,8 +155,9 @@ body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 1fr));
-    gap: 2px;
-    padding: 8%;
+    gap: 0;
+    padding: 6px;
+    box-sizing: border-box;
     background: white;
     border: 2px solid #333;
     border-radius: 10px;
@@ -168,13 +169,14 @@ body {
 
 .pip {
     display: block;
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     align-self: center;
     justify-self: center;
     background: #000;
     border-radius: 50%;
 }
+
 .die.held {
     transform: translateY(-4px);
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);

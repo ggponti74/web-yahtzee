@@ -110,6 +110,8 @@ function rollDice() {
 
     renderDice();
   }, 560);
+
+  isRolling = false;
 }
 
 function renderDice() {

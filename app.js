@@ -190,3 +190,9 @@ document.getElementById("turns").textContent = turnsRemaining;
 document.getElementById("best-score").textContent = bestScore;
 
 initializeDice();
+
+console.log(
+    "Dice:", document.querySelectorAll(".die").length,
+    "Pips:", document.querySelectorAll(".die .pip").length,
+    "First pip:", document.querySelector(".die .pip")?.outerHTML
+);

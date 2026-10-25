@@ -166,8 +166,6 @@ body {
     height: 100%;
     background: #000;
     border-radius: 50%;
-    grid-column: 2;
-    grid-row: 2;
 }
 
 .die.held {

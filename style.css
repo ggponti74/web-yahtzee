@@ -236,6 +236,8 @@ button {
 
     cursor: pointer;
     touch-action: manipulation;
+    
+    width: 100px;
 }
 
 button:active {

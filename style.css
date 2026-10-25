@@ -150,13 +150,13 @@ body {
     position: relative;
     flex: 1 1 0;
     width: 100%;
-    max-width: 52px;
+    max-width: 56px;
     aspect-ratio: 1;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 1fr));
     gap: 2px;
-    padding: 10%;
+    padding: 8%;
     background: white;
     border: 2px solid #333;
     border-radius: 10px;
@@ -168,42 +168,13 @@ body {
 
 .pip {
     display: block;
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     align-self: center;
     justify-self: center;
     background: #000;
     border-radius: 50%;
 }
-
-.die {
-    position: relative;
-    flex: 0 0 52px;
-    width: 52px;
-    height: 52px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 2px;
-    padding: 5px;
-    background: white;
-    border: 2px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    user-select: none;
-    cursor: pointer;
-    touch-action: manipulation;
-}
-
-.pip {
-    width: 7px;
-    height: 7px;
-    align-self: center;
-    justify-self: center;
-    background: #000;
-    border-radius: 50%;
-}
-
 .die.held {
     transform: translateY(-4px);
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);

@@ -97,7 +97,7 @@ function rollDice() {
     // renderDice rebuilds the contents, but preserves the die classes.
   }, 70);
 
-  setTimeout(function () {
+ setTimeout(function () {
     clearInterval(shuffleInterval);
 
     dice = dice.map(function (value, index) {
@@ -108,10 +108,10 @@ function rollDice() {
       die.classList.remove("rolling");
     });
 
+    isRolling = false;
     renderDice();
   }, 560);
 
-  isRolling = false;
 }
 
 function renderDice() {

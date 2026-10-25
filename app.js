@@ -7,6 +7,7 @@ let held = [false, false, false, false, false];
 let rollsRemaining = 3;
 let turnsRemaining = 13;
 let gameState = "ready";
+let isRolling = false;
 
 const CATEGORY_NAMES = {
   ones: "Ones",
@@ -71,6 +72,7 @@ function rollDice() {
 
   rollsRemaining--;
   gameState = "playing";
+  isRolling = true;
 
   const diceElements = document.querySelectorAll(".die");
 
@@ -273,7 +275,8 @@ function updateScoreDisplay() {
 function chooseScore(category) {
   if (gameState !== "playing" && gameState !== "awaiting-score") return;
   if (scores[category] !== null) return;
-
+  if (isRolling) return;
+  
   scores[category] = calculateScore(category);
   turnsRemaining--;
 

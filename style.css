@@ -275,7 +275,7 @@ button {
     cursor: pointer;
     touch-action: manipulation;
     
-    width: 100px;
+    width: 120px;
 }
 
 button:active {

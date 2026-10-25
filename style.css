@@ -330,3 +330,22 @@ button:active {
 .chance-row {
     margin-top: 7px;
 }
+
+.die.rolling {
+    animation: dice-shake 0.12s ease-in-out infinite alternate;
+}
+
+@keyframes dice-shake {
+    from {
+        transform: rotate(-8deg) translateY(-2px);
+    }
+    to {
+        transform: rotate(8deg) translateY(2px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .die.rolling {
+        animation: none;
+    }
+}

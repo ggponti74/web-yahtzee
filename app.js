@@ -8,6 +8,7 @@ let rollsRemaining = 3;
 let turnsRemaining = 13;
 let gameState = "ready";
 let isRolling = false;
+let yahtzeeBonus = 0;
 
 const CATEGORY_NAMES = {
   ones: "Ones",
@@ -251,8 +252,8 @@ function updateScoreDisplay() {
     }
   });
 
-  const bonus = upperTotal >= 63 ? 35 : 0;
-  totalScore += bonus;
+const bonus = upperTotal >= 63 ? 35 : 0;
+totalScore += bonus + yahtzeeBonus;
 
   document
     .querySelectorAll(".score-row[data-category]")
@@ -271,6 +272,9 @@ function updateScoreDisplay() {
   document.getElementById("best-score").textContent =
     bestScore > 0 ? bestScore : "---";
 
+  document.getElementById("yahtzee-bonus-score").textContent =
+  yahtzeeBonus;
+  
   return totalScore;
 }
 
@@ -278,8 +282,57 @@ function chooseScore(category) {
   if (gameState !== "playing" && gameState !== "awaiting-score") return;
   if (scores[category] !== null) return;
   if (isRolling) return;
-  
-  scores[category] = calculateScore(category);
+
+  const yahtzeeValue = getYahtzeeValue();
+  const earnsBonus = scores.yahtzee === 50 && yahtzeeValue !== 0;
+
+  if (earnsBonus) {
+    const matchingUpper = [
+      "ones", "twos", "threes", "fours", "fives", "sixes"
+    ][yahtzeeValue - 1];
+
+    const lowerCategories = [
+      "threeKind", "fourKind", "fullHouse",
+      "smallStraight", "largeStraight", "chance"
+    ];
+
+    const upperAvailable = scores[matchingUpper] === null;
+    const lowerAvailable = lowerCategories.some(
+      function (name) { return scores[name] === null; }
+    );
+
+    // An open matching upper category must be used first.
+    if (upperAvailable && category !== matchingUpper) {
+      alert("You must score this Yahtzee in " +
+        CATEGORY_NAMES[matchingUpper] + ".");
+      return;
+    }
+
+    // Otherwise, use an open lower category if one exists.
+    if (!upperAvailable && lowerAvailable &&
+        !lowerCategories.includes(category)) {
+      alert("Choose an available lower-section category for the Joker rule.");
+      return;
+    }
+
+    // If no lower categories remain, an open upper category scores zero.
+    if (!upperAvailable && !lowerAvailable &&
+        !isUpperCategory(category)) {
+      alert("Choose an available upper-section category.");
+      return;
+    }
+
+    scores[category] = upperAvailable
+      ? calculateScore(category)
+      : isUpperCategory(category)
+        ? 0
+        : getJokerScore(category);
+
+    yahtzeeBonus += 100;
+  } else {
+    scores[category] = calculateScore(category);
+  }
+
   turnsRemaining--;
 
   const totalScore = updateScoreDisplay();
@@ -302,9 +355,28 @@ function chooseScore(category) {
   held = [false, false, false, false, false];
   rollsRemaining = 3;
   gameState = "ready";
-
   renderDice();
   updateRollButton();
+}
+
+function getYahtzeeValue() {
+  return dice.every(function (die) {
+    return die === dice[0];
+  }) ? dice[0] : 0;
+}
+
+function isUpperCategory(category) {
+  return ["ones", "twos", "threes", "fours", "fives", "sixes"]
+    .includes(category);
+}
+
+function getJokerScore(category) {
+  switch (category) {
+    case "fullHouse": return 25;
+    case "smallStraight": return 30;
+    case "largeStraight": return 40;
+    default: return calculateScore(category);
+  }
 }
 
 function newGame() {
@@ -312,6 +384,7 @@ function newGame() {
   held = [false, false, false, false, false];
   rollsRemaining = 3;
   turnsRemaining = 13;
+  yahtzeeBonus = 0;
   gameState = "ready";
 
   Object.keys(CATEGORY_NAMES).forEach(function (category) {
@@ -350,6 +423,48 @@ document.getElementById("versionNumber").textContent =
 Object.keys(CATEGORY_NAMES).forEach(function (category) {
   scores[category] = null;
 });
+
+function saveGame() {
+  const state = {
+    dice,
+    held,
+    rollsRemaining,
+    turnsRemaining,
+    gameState,
+    scores,
+    yahtzeeBonus,
+    bestScore,
+  };
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function loadGame() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return false;
+
+  try {
+    const state = JSON.parse(saved);
+
+    if (!state || typeof state !== "object") return false;
+    if (!Array.isArray(state.dice) || state.dice.length !== 5) return false;
+    if (!Array.isArray(state.held) || state.held.length !== 5) return false;
+    if (!state.scores || typeof state.scores !== "object") return false;
+
+    dice = state.dice;
+    held = state.held;
+    rollsRemaining = state.rollsRemaining;
+    turnsRemaining = state.turnsRemaining;
+    gameState = state.gameState;
+    scores = state.scores;
+    yahtzeeBonus = state.yahtzeeBonus || 0;
+    bestScore = Math.max(bestScore, state.bestScore || 0);
+
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 initializeDice();
 updateScoreDisplay();

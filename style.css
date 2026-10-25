@@ -326,4 +326,7 @@ button:active {
         font-size: 0.8rem;
     }
 }
-```
+
+.chance-row {
+    margin-top: 7px;
+}

@@ -203,8 +203,10 @@ function calculateScore(category) {
             return hasStraight([1, 2, 3, 4, 5]) ||
                    hasStraight([2, 3, 4, 5, 6]) ? 40 : 0;
 
-        case "yahtzee":
-            return counts.some(count => count === 5) ? 50 : 0;
+case "yahtzee":
+    return dice.every(function (die) {
+        return die === dice[0];
+    }) ? 50 : 0;
 
         case "chance":
             return total;

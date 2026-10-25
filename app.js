@@ -579,3 +579,5 @@ initializeDice();
 updateScoreDisplay();
 renderDice();
 updateRollButton();
+
+if( turnsRemaining == 0 ) newGame();

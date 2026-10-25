@@ -503,6 +503,7 @@ function loadGame() {
     held = state.held;
     rollsRemaining = state.rollsRemaining;
     turnsRemaining = state.turnsRemaining;
+    gameState = state.gameState;
     scores = {};
 
     CATEGORIES.forEach(function (category) {
@@ -522,8 +523,18 @@ function loadGame() {
     // A page reload interrupts animations, so always resume settled.
     isRolling = false;
 
-    // A finished game remains finished; other saved games can continue.
-    if (gameState !== "finished" && rollsRemaining === 0) {
+    // Restore completed games as a fresh game, preserving the best score.
+    const allCategoriesScored = CATEGORIES.every(function (category) {
+      return scores[category] !== null;
+    });
+
+    if (gameState === "finished" || turnsRemaining === 0 || allCategoriesScored) {
+      newGame();
+      return true;
+    }
+
+    // Unfinished saved games can continue.
+    if (rollsRemaining === 0) {
       gameState = "playing";
     }
 
@@ -580,4 +591,3 @@ updateScoreDisplay();
 renderDice();
 updateRollButton();
 
-if( turnsRemaining == 0 ) newGame();

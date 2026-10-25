@@ -141,7 +141,9 @@ body {
     gap: 8px;
     width: 100%;
     max-width: 300px;
-    margin-top: 18px;
+    margin-top: auto;
+    padding-top: 20px;
+    padding-bottom: 16px;
 }
 
 .die {

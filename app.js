@@ -66,16 +66,45 @@ function rollDice() {
         gameState === "awaiting-score" ||
         rollsRemaining <= 0) return;
 
-    dice = dice.map(function (value, index) {
-        return held[index] ? value : Math.floor(Math.random() * 6) + 1;
-    });
-
     rollsRemaining--;
     gameState = "playing";
 
-    renderDice();
+    const diceElements = document.querySelectorAll(".die");
+
+    // Animate only dice that aren't being held.
+    diceElements.forEach(function (die, index) {
+        if (!held[index]) {
+            die.classList.add("rolling");
+        }
+    });
+
     updateRollButton();
     playSound("roll");
+
+    // Shuffle through random faces, then settle on the final roll.
+    const shuffleInterval = setInterval(function () {
+        dice = dice.map(function (value, index) {
+            return held[index] ? value : Math.floor(Math.random() * 6) + 1;
+        });
+
+        renderDice();
+
+        // renderDice rebuilds the contents, but preserves the die classes.
+    }, 70);
+
+    setTimeout(function () {
+        clearInterval(shuffleInterval);
+
+        dice = dice.map(function (value, index) {
+            return held[index] ? value : Math.floor(Math.random() * 6) + 1;
+        });
+
+        diceElements.forEach(function (die) {
+            die.classList.remove("rolling");
+        });
+
+        renderDice();
+    }, 560);
 }
 
 function renderDice() {

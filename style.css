@@ -325,3 +325,31 @@ button:active {
         animation: none;
     }
 }
+
+/* Larger, square dice with proportional pips */
+#dice-area {
+    width: 100%;
+    max-width: 420px;
+    gap: 6px;
+}
+
+.die {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    max-width: 76px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.pip {
+    width: 72%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}

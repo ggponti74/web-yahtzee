@@ -99,19 +99,9 @@ body {
 }
 
 .score-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    min-height: 38px;
-    padding: 5px 8px;
-    margin-bottom: 3px;
-
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-
-    font-size: 0.9rem;
+    min-height: 44px;
+    padding: 4px 6px;
+    font-size: 0.8rem;
 }
 
 .score-value {
@@ -136,45 +126,24 @@ body {
    ======================== */
 
 #dice-area {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    max-width: 300px;
-    margin-top: auto;
-    padding-top: 20px;
-    padding-bottom: 16px;
+    max-width: 280px;
+    gap: 7px;
 }
 
+
 .die {
-    position: relative;
-    flex: 1 1 0;
-    width: 100%;
-    max-width: 56px;
-    aspect-ratio: 1;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(0, 1fr));
-    gap: 0;
-    padding: 6px;
-    box-sizing: border-box;
-    background: white;
-    border: 2px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    user-select: none;
-    cursor: pointer;
-    touch-action: manipulation;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    max-width: none;
+    font-size: initial;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .pip {
-    display: block;
-    width: 8px;
-    height: 8px;
-    align-self: center;
-    justify-self: center;
-    background: #000;
-    border-radius: 50%;
+    width: 7px;
+    height: 7px;
 }
 
 .die.held {

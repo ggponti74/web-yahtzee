@@ -1,6 +1,4 @@
 
-const STORAGE_KEY = "yahtzee-v1";
-
 const APP_FILES = [
     "./",
     "./index.html",

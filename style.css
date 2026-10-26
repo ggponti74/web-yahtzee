@@ -103,7 +103,7 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    min-height: 57px;
+    min-height: 38px;
     padding: 5px 8px;
     margin-bottom: 3px;
 
@@ -147,22 +147,34 @@ body {
 }
 
 .die {
-    width: 60px;
-    height: 60px;
-    flex: 0 0 60px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 2px;
+    position: relative;
+    flex: 1 1 0;
+    width: 100%;
+    max-width: 56px;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 0;
     padding: 6px;
     box-sizing: border-box;
+    background: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 .pip {
+    display: block;
     width: 8px;
     height: 8px;
-    border-radius: 50%;
-    justify-self: center;
     align-self: center;
+    justify-self: center;
+    background: #000;
+    border-radius: 50%;
 }
 
 .die.held {
@@ -176,16 +188,17 @@ body {
 
 @media (max-width: 400px) {
     .die {
-        width: 50px;
-        height: 50px;
-        flex-basis: 50px;
-        padding: 5px;
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
         gap: 1px;
+        padding: 3px;
+        border-radius: 8px;
     }
 
     .pip {
-        width: 7px;
-        height: 7px;
+        width: 5px;
+        height: 5px;
     }
 }
 

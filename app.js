@@ -1,5 +1,5 @@
 
-const VERSION_NUMBER = "1.0.__BUILD_VERSION__B";
+const VERSION_NUMBER = "1.0.__BUILD_VERSION__C";
 const STORAGE_KEY = "yahtzee-game-v1";
 const BEST_SCORE_KEY = "yahtzee-best-v1";
 const LEGACY_BEST_SCORE_KEY = "yahtzee-v1";

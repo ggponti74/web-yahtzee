@@ -353,3 +353,19 @@ button:active {
     height: auto;
     aspect-ratio: 1 / 1;
 }
+
+/* Taller score rows in both columns */
+.score-row {
+    min-height: 48px; /* Was 38px */
+}
+
+.score-value {
+    height: 30px;    /* Was 24px */
+    line-height: 28px;
+}
+
+@media (max-width: 400px) {
+    .score-row {
+        min-height: 43px; /* Was 34px */
+    }
+}

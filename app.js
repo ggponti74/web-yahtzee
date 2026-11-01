@@ -449,6 +449,7 @@ function saveGame() {
     scores: scores,
     yahtzeeBonus: yahtzeeBonus,
     bestScore: bestScore,
+    soundEnabled: soundEnabled,
   };
 
   try {
@@ -504,6 +505,7 @@ function loadGame() {
     rollsRemaining = state.rollsRemaining;
     turnsRemaining = state.turnsRemaining;
     gameState = state.gameState;
+    soundEnabled = state.soundEnabled;
     scores = {};
 
     CATEGORIES.forEach(function (category) {
@@ -584,6 +586,8 @@ if (!loadGame()) {
 
   // Preserve a best score from the older version of the app.
   localStorage.setItem(BEST_SCORE_KEY, String(bestScore));
+} else {
+  document.getElementById("soundToggle").textContent = soundEnabled ? "🔊" : "🔇";
 }
 
 initializeDice();

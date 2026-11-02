@@ -174,7 +174,7 @@ function updateRollButton() {
     button.textContent = "Roll (" + rollsRemaining + ")";
     button.disabled = isRolling;
   } else {
-    button.textContent = "Choose Score";
+    button.textContent = "Choose";
     button.disabled = true;
   }
 }

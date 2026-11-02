@@ -372,21 +372,48 @@ button:active {
 .roll-control {
     position: relative;
     display: flex;
+    flex: 0 0 120px;
     width: 120px;
+    min-width: 120px;
     height: 38px;
 }
 
-#rollButton {
-    flex: 1;
+.roll-control #rollButton {
+    flex: 1 1 auto;
+    width: auto;
     min-width: 0;
+    white-space: nowrap;
     border-radius: 5px 0 0 5px;
 }
 
-#rollMenuButton {
+.roll-control #rollMenuButton {
+    flex: 0 0 28px;
     width: 28px;
     padding: 0;
     border: none;
     border-left: 1px solid #ddd;
     border-radius: 0 5px 5px 0;
-    cursor: pointer;
+}
+
+.roll-control .roll-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 5px;
+    width: max-content;
+    background: white;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 4px;
+    z-index: 100;
+}
+
+.roll-control .roll-menu button {
+    width: auto;
+    min-width: 100px;
+    white-space: nowrap;
+}
+
+.roll-control .hidden {
+    display: none;
 }

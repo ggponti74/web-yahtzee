@@ -6,12 +6,12 @@
 :root {
     --harbor: #263B4A;
     --harbor-light: #344F60;
-    --sand: #D8D2C4;
-    --ivory: #F5F3EC;
-    --sea-glass: #78918C;
-    --driftwood: #B5A58D;
+    --sand: #A6B3AD;
+    --ivory: #E9E1D2;
+    --sea-glass: #718D86;
+    --driftwood: #A99A80;
     --graphite: #303A40;
-    --border: #C7C1B5;
+    --border: #B5AD9E;
 }
 
 * {

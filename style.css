@@ -4,15 +4,15 @@
    ======================== */
 
 :root {
-    --harbor: #477D91;
-    --harbor-light: #659BAA;
-    --sand: #A5C9D5;
-    --ivory: #B9DCCB;
-    --sea-glass: #91C8B5;
-    --driftwood: #659F91;
-    --graphite: #203D48;
-    --border: #659F91;
-    --dice: #D0E5DC;
+    --harbor: #356477;
+    --harbor-light: #477F91;
+    --sand: #7FAFBD;
+    --ivory: #91C4A9;
+    --sea-glass: #72B69B;
+    --driftwood: #477F70;
+    --graphite: #183641;
+    --border: #477F70;
+    --dice: #B5D8C9;
 }
 
 * {

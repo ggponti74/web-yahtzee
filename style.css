@@ -93,6 +93,7 @@ body {
     align-items: center;
     overflow: auto;
     padding: 10px;
+    background: #7FAFBD !important;
 }
 
 
@@ -380,8 +381,4 @@ button:disabled {
         padding: 8px 10px;
         font-size: 0.8rem;
     }
-}
-
-body {
-    background: red !important;
 }

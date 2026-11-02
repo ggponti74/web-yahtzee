@@ -4,14 +4,15 @@
    ======================== */
 
 :root {
-    --harbor: #263B4A;
-    --harbor-light: #344F60;
-    --sand: #A6B3AD;
-    --ivory: #E9E1D2;
-    --sea-glass: #718D86;
-    --driftwood: #A99A80;
-    --graphite: #303A40;
-    --border: #B5AD9E;
+    --harbor: #719DAA;
+    --harbor-light: #8DB8C0;
+    --sand: #B9DDE8;
+    --ivory: #DCEFE5;
+    --sea-glass: #BDE1D5;
+    --driftwood: #91BDB3;
+    --graphite: #294650;
+    --border: #B0D3C9;
+    --dice: #F0F7F5;
 }
 
 * {
@@ -46,7 +47,7 @@ body {
     min-height: 60px;
     padding: 8px 20px;
     background: var(--harbor);
-    color: var(--ivory);
+    color: white;
 }
 
 .header-stat {
@@ -71,7 +72,7 @@ body {
     font-size: 0.7rem;
     font-weight: bold;
     text-transform: uppercase;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .header-stat > span:last-child {
@@ -114,7 +115,7 @@ body {
     margin: 4px 0 6px;
     text-align: center;
     font-size: 1rem;
-    color: var(--harbor);
+    color: var(--graphite);
 }
 
 .score-row {
@@ -139,7 +140,7 @@ body {
     text-align: center;
     line-height: 28px;
     font-weight: bold;
-    color: var(--harbor);
+    color: var(--graphite);
 }
 
 .bonus-row {
@@ -182,10 +183,10 @@ body {
     gap: 0;
 
     padding: 4px;
-    background: var(--ivory);
+    background: var(--dice);
     border: 2px solid var(--harbor);
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(38, 59, 74, 0.22);
+    box-shadow: 0 2px 4px rgba(41, 70, 80, 0.2);
 
     user-select: none;
     cursor: pointer;
@@ -199,13 +200,13 @@ body {
     aspect-ratio: 1 / 1;
     align-self: center;
     justify-self: center;
-    background: var(--harbor);
+    background: var(--graphite);
     border-radius: 50%;
 }
 
 .die.held {
     transform: translateY(-4px);
-    box-shadow: 0 5px 8px rgba(38, 59, 74, 0.3);
+    box-shadow: 0 5px 8px rgba(41, 70, 80, 0.3);
 }
 
 .die.rolling {
@@ -238,7 +239,7 @@ body {
     min-height: 60px;
     padding: 8px 12px;
     background: var(--harbor);
-    color: var(--ivory);
+    color: white;
 }
 
 #sound-toggle {
@@ -249,13 +250,9 @@ body {
     flex: 1;
     text-align: center;
     font-size: 0.645rem;
-    opacity: 0.75;
+    opacity: 0.85;
 }
 
-button {
-    background: #D1C7B5;
-    color: var(--harbor);
-}
 
 /* ========================
    Buttons
@@ -265,8 +262,8 @@ button {
     padding: 9px 14px;
     border: 1px solid var(--driftwood);
     border-radius: 5px;
-    background: var(--ivory);
-    color: var(--harbor);
+    background: var(--sea-glass);
+    color: var(--graphite);
     font-size: 0.9rem;
     cursor: pointer;
     touch-action: manipulation;
@@ -311,8 +308,8 @@ button:disabled {
     border: 1px solid var(--driftwood);
     border-left: 1px solid var(--sand);
     border-radius: 0 5px 5px 0;
-    background: var(--ivory);
-    color: var(--harbor);
+    background: var(--sea-glass);
+    color: var(--graphite);
 }
 
 .roll-control .roll-menu {
@@ -326,7 +323,7 @@ button:disabled {
     border-radius: 5px;
     padding: 4px;
     z-index: 100;
-    box-shadow: 0 3px 8px rgba(38, 59, 74, 0.2);
+    box-shadow: 0 3px 8px rgba(41, 70, 80, 0.2);
 }
 
 .roll-control .roll-menu button {

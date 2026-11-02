@@ -93,9 +93,8 @@ body {
     align-items: center;
     overflow: auto;
     padding: 10px;
-    background: #7FAFBD !important;
+    background: var(--sand);
 }
-
 
 /* ========================
    Scorecard

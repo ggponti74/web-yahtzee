@@ -252,10 +252,10 @@ body {
     opacity: 0.75;
 }
 
-#roll-button {
-    flex: 0 0 auto;
+button {
+    background: #D1C7B5;
+    color: var(--harbor);
 }
-
 
 /* ========================
    Buttons

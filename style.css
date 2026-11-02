@@ -368,3 +368,39 @@ button:active {
         min-height: 43px; /* Was 34px */
     }
 }
+
+
+.roll-control {
+    position: relative;
+    display: flex;
+    gap: 2px;
+}
+
+#rollMenuButton {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 0 12px;
+}
+
+.roll-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 5px;
+    background: white;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 4px;
+    z-index: 100;
+}
+
+.roll-menu button {
+    width: 100%;
+    padding: 10px 18px;
+    white-space: nowrap;
+}
+
+.hidden {
+    display: none;
+}

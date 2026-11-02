@@ -369,38 +369,24 @@ button:active {
     }
 }
 
-
 .roll-control {
     position: relative;
     display: flex;
-    gap: 2px;
+    width: 120px;
+    height: 38px;
+}
+
+#rollButton {
+    flex: 1;
+    min-width: 0;
+    border-radius: 5px 0 0 5px;
 }
 
 #rollMenuButton {
-    cursor: pointer;
+    width: 28px;
+    padding: 0;
     border: none;
-    border-radius: 5px;
-    padding: 0 12px;
-}
-
-.roll-menu {
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-    margin-bottom: 5px;
-    background: white;
-    border: 1px solid #999;
-    border-radius: 5px;
-    padding: 4px;
-    z-index: 100;
-}
-
-.roll-menu button {
-    width: 100%;
-    padding: 10px 18px;
-    white-space: nowrap;
-}
-
-.hidden {
-    display: none;
+    border-left: 1px solid #ddd;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
 }

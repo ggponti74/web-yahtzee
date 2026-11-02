@@ -439,6 +439,19 @@ function newGame() {
   saveGame();
 }
 
+const rollMenuButton = document.getElementById("rollMenuButton");
+const rollMenu = document.getElementById("rollMenu");
+const newGameMenuButton = document.getElementById("newGameMenuButton");
+
+rollMenuButton.addEventListener("click", () => {
+    rollMenu.classList.toggle("hidden");
+});
+
+newGameMenuButton.addEventListener("click", () => {
+    rollMenu.classList.add("hidden");
+    newGame();
+});
+
 function saveGame() {
   const state = {
     dice: dice,

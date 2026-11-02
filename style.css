@@ -1,3 +1,19 @@
+```css
+/* ========================
+   Global
+   ======================== */
+
+:root {
+    --harbor: #263B4A;
+    --harbor-light: #344F60;
+    --sand: #D8D2C4;
+    --ivory: #F5F3EC;
+    --sea-glass: #78918C;
+    --driftwood: #B5A58D;
+    --graphite: #303A40;
+    --border: #C7C1B5;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -14,8 +30,8 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    background: #c6b297;
-    color: #222;
+    background: var(--sand);
+    color: var(--graphite);
 }
 
 
@@ -29,8 +45,8 @@ body {
     align-items: flex-start;
     min-height: 60px;
     padding: 8px 20px;
-    background: #222;
-    color: white;
+    background: var(--harbor);
+    color: var(--ivory);
 }
 
 .header-stat {
@@ -55,7 +71,7 @@ body {
     font-size: 0.7rem;
     font-weight: bold;
     text-transform: uppercase;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .header-stat > span:last-child {
@@ -63,6 +79,8 @@ body {
     font-size: 1.15rem;
     font-weight: bold;
 }
+
+
 /* ========================
    Main
    ======================== */
@@ -96,39 +114,43 @@ body {
     margin: 4px 0 6px;
     text-align: center;
     font-size: 1rem;
+    color: var(--harbor);
 }
 
 .score-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    min-height: 38px;
+    min-height: 48px;
     padding: 5px 8px;
     margin-bottom: 3px;
-
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    border-radius: 5px;
     font-size: 0.9rem;
 }
 
 .score-value {
     display: inline-block;
     min-width: 35px;
-    height: 24px;
-    border: 1px dashed #ccc;
+    height: 30px;
+    border: 1px dashed var(--driftwood);
     border-radius: 4px;
     text-align: center;
-    line-height: 22px;
+    line-height: 28px;
     font-weight: bold;
+    color: var(--harbor);
 }
 
 .bonus-row {
     margin-top: 7px;
     font-weight: bold;
 }
+
+.chance-row {
+    margin-top: 7px;
+}
+
 
 /* ========================
    Dice
@@ -137,9 +159,9 @@ body {
 #dice-area {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     width: 100%;
-    max-width: 300px;
+    max-width: 420px;
     margin-top: auto;
     padding-top: 20px;
     padding-bottom: 16px;
@@ -148,19 +170,23 @@ body {
 .die {
     position: relative;
     flex: 1 1 0;
-    width: 100%;
-    max-width: 74px;
-    aspect-ratio: 1;
+    min-width: 0;
+    width: auto;
+    max-width: 76px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 1fr));
     gap: 0;
-    padding: 6px;
-    box-sizing: border-box;
-    background: white;
-    border: 2px solid #333;
+
+    padding: 4px;
+    background: var(--ivory);
+    border: 2px solid var(--harbor);
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(38, 59, 74, 0.22);
+
     user-select: none;
     cursor: pointer;
     touch-action: manipulation;
@@ -168,38 +194,39 @@ body {
 
 .pip {
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 72%;
+    height: auto;
+    aspect-ratio: 1 / 1;
     align-self: center;
     justify-self: center;
-    background: #000;
+    background: var(--harbor);
     border-radius: 50%;
 }
 
 .die.held {
     transform: translateY(-4px);
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 5px 8px rgba(38, 59, 74, 0.3);
 }
 
-/* ========================
-   Small screens
-   ======================== */
+.die.rolling {
+    animation: dice-shake 0.12s ease-in-out infinite alternate;
+}
 
-@media (max-width: 400px) {
-    .die {
-        flex-basis: 48px;
-        width: 48px;
-        height: 40px;
-        gap: 1px;
-        padding: 3px;
-        border-radius: 8px;
+@keyframes dice-shake {
+    from {
+        transform: rotate(-8deg) translateY(-2px);
     }
-
-    .pip {
-        width: 6px;
-        height: 6px;
+    to {
+        transform: rotate(8deg) translateY(2px);
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .die.rolling {
+        animation: none;
+    }
+}
+
 
 /* ========================
    Footer
@@ -210,9 +237,8 @@ body {
     align-items: center;
     min-height: 60px;
     padding: 8px 12px;
-
-    background: #222;
-    color: white;
+    background: var(--harbor);
+    color: var(--ivory);
 }
 
 #sound-toggle {
@@ -223,7 +249,7 @@ body {
     flex: 1;
     text-align: center;
     font-size: 0.645rem;
-    opacity: 0.7;
+    opacity: 0.75;
 }
 
 #roll-button {
@@ -237,23 +263,80 @@ body {
 
 button {
     padding: 9px 14px;
-
-    border: 1px solid #aaa;
+    border: 1px solid var(--driftwood);
     border-radius: 5px;
-
-    background: white;
-    color: #222;
-
+    background: var(--ivory);
+    color: var(--harbor);
     font-size: 0.9rem;
-
     cursor: pointer;
     touch-action: manipulation;
-    
     width: 120px;
 }
 
 button:active {
     transform: translateY(1px);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+
+/* ========================
+   Roll dropdown
+   ======================== */
+
+.roll-control {
+    position: relative;
+    display: flex;
+    flex: 0 0 120px;
+    width: 120px;
+    min-width: 120px;
+    height: 38px;
+}
+
+.roll-control #rollButton {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    white-space: nowrap;
+    border-radius: 5px 0 0 5px;
+}
+
+.roll-control #rollMenuButton {
+    flex: 0 0 28px;
+    width: 28px;
+    padding: 0;
+    border: 1px solid var(--driftwood);
+    border-left: 1px solid var(--sand);
+    border-radius: 0 5px 5px 0;
+    background: var(--ivory);
+    color: var(--harbor);
+}
+
+.roll-control .roll-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 5px;
+    width: max-content;
+    background: var(--ivory);
+    border: 1px solid var(--driftwood);
+    border-radius: 5px;
+    padding: 4px;
+    z-index: 100;
+    box-shadow: 0 3px 8px rgba(38, 59, 74, 0.2);
+}
+
+.roll-control .roll-menu button {
+    width: auto;
+    min-width: 100px;
+    white-space: nowrap;
+}
+
+.roll-control .hidden {
+    display: none;
 }
 
 
@@ -277,7 +360,7 @@ button:active {
     }
 
     .score-row {
-        min-height: 34px;
+        min-height: 43px;
         padding: 4px 6px;
         font-size: 0.8rem;
     }
@@ -288,7 +371,7 @@ button:active {
     }
 
     .die {
-        font-size: 2.5rem;
+        border-radius: 8px;
     }
 
     #game-footer {
@@ -301,119 +384,4 @@ button:active {
         font-size: 0.8rem;
     }
 }
-
-.chance-row {
-    margin-top: 7px;
-}
-
-.die.rolling {
-    animation: dice-shake 0.12s ease-in-out infinite alternate;
-}
-
-@keyframes dice-shake {
-    from {
-        transform: rotate(-8deg) translateY(-2px);
-    }
-    to {
-        transform: rotate(8deg) translateY(2px);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .die.rolling {
-        animation: none;
-    }
-}
-
-/* Larger, square dice with proportional pips */
-#dice-area {
-    width: 100%;
-    max-width: 420px;
-    gap: 6px;
-}
-
-.die {
-    flex: 1 1 0;
-    min-width: 0;
-    width: auto;
-    max-width: 76px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(0, 1fr));
-    gap: 0;
-    padding: 4px;
-    border-radius: 10px;
-}
-
-.pip {
-    width: 72%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-}
-
-/* Taller score rows in both columns */
-.score-row {
-    min-height: 48px; /* Was 38px */
-}
-
-.score-value {
-    height: 30px;    /* Was 24px */
-    line-height: 28px;
-}
-
-@media (max-width: 400px) {
-    .score-row {
-        min-height: 43px; /* Was 34px */
-    }
-}
-
-.roll-control {
-    position: relative;
-    display: flex;
-    flex: 0 0 120px;
-    width: 120px;
-    min-width: 120px;
-    height: 38px;
-}
-
-.roll-control #rollButton {
-    flex: 1 1 auto;
-    width: auto;
-    min-width: 0;
-    white-space: nowrap;
-    border-radius: 5px 0 0 5px;
-}
-
-.roll-control #rollMenuButton {
-    flex: 0 0 28px;
-    width: 28px;
-    padding: 0;
-    border: none;
-    border-left: 1px solid #ddd;
-    border-radius: 0 5px 5px 0;
-}
-
-.roll-control .roll-menu {
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-    margin-bottom: 5px;
-    width: max-content;
-    background: white;
-    border: 1px solid #999;
-    border-radius: 5px;
-    padding: 4px;
-    z-index: 100;
-}
-
-.roll-control .roll-menu button {
-    width: auto;
-    min-width: 100px;
-    white-space: nowrap;
-}
-
-.roll-control .hidden {
-    display: none;
-}
+```
